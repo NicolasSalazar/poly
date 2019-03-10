@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- nav bar-->
+    <header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h:form prependId="false">
+        <div class="d-flex justify-content-around">
+            <div class=" col-sm-2">
+                <h:commandLink class="navHeader" action="/JefeInventario/personalinformation.xhtml" value="INfORMACÓN PERSONAL"/>
+            </div>
+            <div class=" col-sm-2">
+                <h:commandLink class="navHeader" action="/JefeInventario/importapplication.xhtml" value="SOLICITAR IMPORTACIÓN"/>
+            </div>
+            <div class=" col-sm-2">
+                <h:commandLink class="navHeader" action="/JefeInventario/storedmaterial?faces-redirect=true" value="MATERIAL EN BODEGA"/>
+            </div>
+            <div class=" col-sm-2">
+                <h:commandLink  class="navHeader" action="/JefeInventario/salida?faces-redirect=true" value="SALIDA DE MATERIAL"/>
+            </div>
+            <div class=" col-sm-2">
+                <h:commandLink class="navHeader" action="/JefeInventario/departures.xhtml?faces-redirect=true" value="REPORTES"/>
+            </div>
+            <div class=" col-sm-2">
+                <a class="navHeader" href=""> SALIR <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+
+        </div>
+</h:form>
+    </header>    
+</ui:composition>

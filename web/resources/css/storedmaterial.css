@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Signika');
+body{
+  background:url(../img/fondonuevo.jpg);
+  background-size: 1400px 1400px; 
+  background-attachment: fixed;
+}
+.container-fluid {
+    width: 100%;
+    padding: 0px;
+    background: 
+}
+
+header{
+	background: #31353D;	
+	font-family: 'Signika', sans-serif;
+	font-size: 15px;
+	text-decoration: none;
+	padding: 10px;
+	text-align: center;
+}
+
+header div .navHeader{
+	color: #EEEFF7;
+}
+
+header div .navHeader:hover{
+	color: #ADD8E6;
+}
+
+#cajaBanner{
+	font-family: 'Signika', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	position: center;
+	text-decoration: none;
+	text-align: center;
+}
+
+h1{
+	color: #31353D;
+}
+
+div.avatar {
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    background-size: 100% auto;
+    display: block;
+    margin-right:auto; 
+    margin-left:auto;
+    text-align: center;
+}
+#tabBoss{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#example{
+    background-color: transparent;
+}
+#example_legth{
+    margin-left: 163px;
+}

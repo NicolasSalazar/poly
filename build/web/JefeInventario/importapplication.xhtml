@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/templateJefeInventario.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                         xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="AddTitle">
+        Solicitar Importación
+    </ui:define>
+    <ui:define name="styleCustomized">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/importapplication.css"/>
+    </ui:define>
+    <ui:define name="content">
+        
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cajaBanner">
+             <h:form>
+            <table class="table table-hover table-bordered table-transparent table-dondensed form-group" style="width: auto;" id="tabBoss">
+                <thead>
+                    <tr>
+                        <h1>Solicitar Importación</h1>
+                    </tr>
+                </thead>
+                <br/>
+                <div class="avatar" style="background-image: url(#{request.contextPath}/resources/img/Logo.jpg);"></div>
+                <br/>
+                <tbody>
+                    <tr>
+                        <th scope="col">Provedor</th>
+                        <td>
+                            <select class="form-control" id="controlSelect1">
+                                <option>GoldenKings</option>
+                                <option>JewerlyGO</option>
+                                <option>EmeraldWorld</option>
+                                <option>EarthJWL</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Onza Troy</th>
+                        <td>
+                            <h:inputText a:type="number" id="onzas" a:placeholder="cantidad a solicitar" style="width: 100%; height: 40px;"/>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Metal Precioso</th>
+                        <td>
+                            <select class="form-control" id="controlSelect2">
+                                <option>Oro (Au)</option>
+                                <option>Plata (Ag)</option>
+                                <option>Paladio (Pd)</option>
+                                <option>Platino (Pt)</option>
+                                <option>Rodio (Rh)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Bodega Llegada</th>
+                        <td>
+                            <select class="form-control" id="controlSelect3">
+                                <option>Cali Cll 22#24</option>
+                                <option>Bogotá Cra 7 #12-25</option>
+                                <option>Siberia Km 4</option>
+                                <option>Medellín Transversal 8 #12-35</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                 </h:form>
+            <div>
+                <button type="button" class="btn btn-dark" id="boton1" value="Alerta " onClick="swal( 'Enhora buena', 'Su solicitud ha sido correctamente enviada', 'success'); ">Enviar</button>
+                <button type="button " class="btn btn-light " id="boton2">Cancelar</button>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

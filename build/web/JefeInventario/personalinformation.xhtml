@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/templateJefeInventario.xhtml">
+    <ui:define name="AddTitle">
+        Información personal
+    </ui:define>
+    <ui:define name="styleCustomized">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/personalinformation.css"/>
+    </ui:define>
+    <ui:define name="content">
+        
+                <br/>
+        <br/>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cajaBanner">
+            <table class="table table-hover table-bordered table-transparent table-dondensed" style="width: auto;" id="tabBoss">
+                <thead>
+                    <tr>
+                       <h1>Información Personal</h1> 
+                    </tr>
+                </thead>
+                <br/>
+                    <div class="avatar" style="background-image: url(#{request.contextPath}/resources/img/Logo.jpg)"></div>
+                <br/>
+                <tbody>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <td style="width: 50px">Aura</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Apellido</th>
+                        <td>Meneses</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <td>A1605MNS</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Celular</th>
+                        <td>321-498-1997</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Correo electrónico</th>
+                        <td>aura.meneses1605@correo.com</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a href="infopersonalimput.xhtml" class="btn btn-dark">Editar</a>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

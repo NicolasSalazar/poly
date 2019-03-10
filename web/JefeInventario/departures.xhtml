@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../WEB-INF/templates/templateJefeInventario.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a="http://java.sun.com/jsf/passthrough"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="AddTitle">
+        Salida de materia
+    </ui:define>
+    <ui:define name="styleCustomized">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/departures.css"/>
+    </ui:define>
+    <ui:define name="content">
+
+        <div class="container">
+            <div class="col-12">
+                <h:form prependId="false" id="estado">
+                  <h:outputLabel>Estado:</h:outputLabel>
+                    <h:selectOneMenu value="#{controllerOrdenProduccion.estado}">
+                        <f:selectItem itemLabel="-----------"/> 
+                        <f:selectItem itemLabel="NO FABRICABLE" itemValue="NO FABRICABLE"/>
+                        <f:selectItem itemLabel="FABRICABLE" itemValue="FABRICABLE"/>
+                        <f:selectItem itemLabel="GESTION MATERIAL" itemValue="GESTIONMATERIAL"/>
+                        <f:selectItem itemLabel="VENDIDA" itemValue="VENDIDA"/>
+                        <f:selectItem itemLabel="ENTREGABLE" itemValue="ENTREGABLE"/>
+                        <f:ajax execute="@form" render=":datos"/>
+                    </h:selectOneMenu>
+                  
+                  
+                </h:form>
+                <h:form prependId="false" id="datos">
+                    <h:dataTable class=" table table-hover table-bordered table-responsive" value="#{controllerOrdenProduccion.listaFiltrada}" var="ls">
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.idVenta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Sede produccion</f:facet>
+                            <h:outputText value="#{ls.sedeIdSede.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Deposito</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.deposito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Fecha de Venta</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.fechaVenta}">
+                                <f:convertDateTime pattern="yyyy-MM-dd"/>
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Estado</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.estado}"/>   
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Costo total</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.costoTotal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">total de la venta</f:facet>
+                            <h:outputText value="#{ls.ventaIdVenta.totalVenta}"/>
+                        </h:column> 
+                    </h:dataTable>
+                </h:form>
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

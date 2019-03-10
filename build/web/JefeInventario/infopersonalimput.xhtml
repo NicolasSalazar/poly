@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/templateJefeInventario.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="AddTitle">
+        Información Personal
+    </ui:define>
+    <ui:define name="styleCustomized">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/personalinformation.css"/>
+    </ui:define>
+    <ui:define name="content">
+                <br/>
+        <br/>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cajaBanner">
+            <h:form>
+            <table class="table table-hover table-bordered table-transparent table-dondensed" style="width: auto;" id="tabBoss">
+                <thead>
+                    <tr>
+                       <h1>Información Personal</h1> 
+                    </tr>
+                </thead>
+                <br/>
+                    <div class="avatar" style="background-image: url(#{request.contextPath}/resources/img/Logo.jpg)"></div>
+                <br/>
+                <tbody>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <td style="width: 50px"><h:inputText a:type="text" id="onzas1" a:placeholder="Nombre"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Apellido</th>
+                        <td><h:inputText a:type="TEXT" id="onzas2" a:placeholder="Apellido"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <td>A1605MNS</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Celular</th>
+                        <td><h:inputText a:type="number" id="onzas3" a:placeholder="Número celular"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Correo electrónico</th>
+                        <td><h:inputText a:type="text" id="onzas4" a:placeholder="@polyhedra.com"/></td>
+                    </tr>
+                </tbody>
+            </table>
+                </h:form>
+            <div>
+                <button type="button" class="btn btn-dark" id="boton1" value="Alerta" onClick="swal( 'Enhora buena', 'Los cambios efectuados han sido correctamente almacenados', 'success'); ">Enviar</button>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/templateJefeInventario.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+       <ui:define name="AddTitle">
+        Material en bodega
+    </ui:define>
+    <ui:define name="styleCustomized">
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/storedmaterial.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/jquery.dataTables.min.css"/>
+            <link rel="stylesheet" href="#{request.contextPath}/resources/css/jquery.dataTables.css"/>
+                </ui:define>
+    <ui:define name="content">
+
+        <br/>
+            <br/>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cajaBanner">
+                    <h1>Material en Bodega</h1>
+                    <br/>
+                    <h:dataTable class="table table-hover table-bordered table-transparent table-dondensed" style="width: auto;" id="example" value="#{controllerRegistro.listaRegistro}" var="M">
+                        <h:column>
+                            <f:facet name="header">Nombre</f:facet>
+                            <h:outputText value="#{M.materialIdMaterial.tipoMaterial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Tipo de material</f:facet>
+                            <h:outputText/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Ciudad</f:facet>
+                            <h:outputText/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Cantidad</f:facet>
+                            <h:outputText/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Fecha de llegada</f:facet>
+                            <h:outputText/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Costo</f:facet>
+                            <h:outputText/>
+                        </h:column>
+                    </h:dataTable>
+
+                </div  >           
+                <ui:insert name="scriptsCustomized">
+
+                    <script src="#{request.contextPath}/resources/js/jquery.dataTables.min.js"></script>
+                    <script src="#{request.contextPath}/resources/js/jquery-3.3.1.js"></script>
+
+                    <script src="#{request.contextPath}/resources/js/jquery.dataTables.js"></script>
+                    <script src="#{request.contextPath}/resources/js/dataTables.bootstrap4.min.js"></script>
+                    <script src="#{request.contextPath}/resources/js/menu/menu.js"></script>
+                    <script src="#{request.contextPath}/resources/js/script.js"></script>
+                </ui:insert>>
+                </ui:define>
+
+                </ui:composition>
