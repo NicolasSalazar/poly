@@ -29,9 +29,9 @@ public class ControllerOrdenProduccion implements Serializable {
     private OrdenProduccion ordenProduccion;
 
     //Implementacion de las listas
-    private List<OrdenProduccion> listaOrdenProduccion;
-    private List<OrdenProduccion> listaFiltrada;
-
+    private List<OrdenProduccion> listaOrden;
+    private List<Object[]> listaDeVentasPorFecha;
+    
     //Variables
     private String estado = "";
 
@@ -48,29 +48,33 @@ public class ControllerOrdenProduccion implements Serializable {
         this.estado = estado;
     }
 
-    public List<OrdenProduccion> getListaOrdenProduccion() {
-        if (listaOrdenProduccion == null || listaOrdenProduccion.isEmpty()) {
-            listaOrdenProduccion = OPFL.findAll();
+    public List<OrdenProduccion> getListaOrden() {
+        if (listaOrden == null || listaOrden.isEmpty()) {
+            listaOrden = OPFL.findAll();
         }
-        return listaOrdenProduccion;
+        return listaOrden;
     }
 
-    public void setListaOrdenProduccion(List<OrdenProduccion> listaOrdenProduccion) {
-        this.listaOrdenProduccion = listaOrdenProduccion;
+    public void setListaOrden(List<OrdenProduccion> listaOrden) {
+        this.listaOrden = listaOrden;
     }
+
+    public void ordenFiltrada(){
+        listaOrden = OPFL.lista(estado);
+    }
+
+    public List<Object[]> getListaDeVentasPorFecha() {
+        if (listaDeVentasPorFecha == null || listaDeVentasPorFecha.isEmpty()) {
+            listaDeVentasPorFecha = OPFL.ventasPorFecha();
+        }
+        return listaDeVentasPorFecha;
+    }
+
+    public void setListaDeVentasPorFecha(List<Object[]> listaDeVentasPorFecha) {
+        this.listaDeVentasPorFecha = listaDeVentasPorFecha;
+    }
+
 
     
-    public List<OrdenProduccion> getListaFiltrada() {
-        System.out.println(estado);
-            if (listaFiltrada == null || listaFiltrada.isEmpty()) {
-                listaFiltrada = OPFL.lista(estado);
-            }
-
-        return listaFiltrada;
-    }
-
-    public void setListaFiltrada(List<OrdenProduccion> listaFiltrada) {
-        this.listaFiltrada = listaFiltrada;
-    }
-
+    
 }

@@ -15,59 +15,131 @@
     </ui:define>
     <ui:define name="content">
 
-        <div class="container">
-            <div class="col-12">
-                <h:form prependId="false" id="estado">
-                  <h:outputLabel>Estado:</h:outputLabel>
-                    <h:selectOneMenu value="#{controllerOrdenProduccion.estado}">
-                        <f:selectItem itemLabel="-----------"/> 
-                        <f:selectItem itemLabel="NO FABRICABLE" itemValue="NO FABRICABLE"/>
-                        <f:selectItem itemLabel="FABRICABLE" itemValue="FABRICABLE"/>
-                        <f:selectItem itemLabel="GESTION MATERIAL" itemValue="GESTIONMATERIAL"/>
-                        <f:selectItem itemLabel="VENDIDA" itemValue="VENDIDA"/>
-                        <f:selectItem itemLabel="ENTREGABLE" itemValue="ENTREGABLE"/>
-                        <f:ajax execute="@form" render=":datos"/>
-                    </h:selectOneMenu>
-                  
-                  
-                </h:form>
-                <h:form prependId="false" id="datos">
-                    <h:dataTable class=" table table-hover table-bordered table-responsive" value="#{controllerOrdenProduccion.listaFiltrada}" var="ls">
-                        <h:column>
-                            <f:facet name="header">Id</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.idVenta}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Sede produccion</f:facet>
-                            <h:outputText value="#{ls.sedeIdSede.nombre}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Deposito</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.deposito}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Fecha de Venta</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.fechaVenta}">
-                                <f:convertDateTime pattern="yyyy-MM-dd"/>
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Estado</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.estado}"/>   
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Costo total</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.costoTotal}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">total de la venta</f:facet>
-                            <h:outputText value="#{ls.ventaIdVenta.totalVenta}"/>
-                        </h:column> 
-                    </h:dataTable>
-                </h:form>
+        <div class="col-12" >
+            <h:form prependId="false" id="datos">
+                <div class="row justify-content-center" style="padding: 50px;">
+                    <div class="col-3">
+                        <h:selectOneMenu value="#{controllerOrdenProduccion.estado}" class="form-control">
+                            <f:selectItem itemLabel="Escoja el estado"/> 
+                            <f:selectItem itemLabel="NO FABRICABLE" itemValue="NO FABRICABLE"/>
+                            <f:selectItem itemLabel="FABRICABLE" itemValue="FABRICABLE"/>
+                            <f:selectItem itemLabel="GESTION MATERIAL" itemValue="GESTIONMATERIAL"/>
+                            <f:selectItem itemLabel="VENDIDA" itemValue="VENDIDA"/>
+                            <f:selectItem itemLabel="ENTREGABLE" itemValue="ENTREGABLE"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="col-3">
+                        <h:commandButton class="btn btn-dark" value="BUSCAR" action="#{controllerOrdenProduccion.ordenFiltrada()}" a:update="tabla"/>
+                    </div>
+                </div>
+                <hr></hr>
+                <hr></hr>
+                <h:dataTable id="tabla" class=" table table-hover table-bordered " value="#{controllerOrdenProduccion.listaOrden}" var="ls">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.idVenta}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Sede produccion</f:facet>
+                        <h:outputText value="#{ls.sedeIdSede.nombre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Deposito</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.deposito}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fecha de Venta</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.fechaVenta}">
+                            <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Estado</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.estado}"/>   
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Costo total</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.costoTotal}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">total de la venta</f:facet>
+                        <h:outputText value="#{ls.ventaIdVenta.totalVenta}"/>
+                    </h:column> 
+                </h:dataTable>
+            </h:form>
 
+        </div>
+
+        <div class="container" style="padding-top: 80px; padding-left: 30px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <h:form prependId="false">
+                        <br/>
+                        <h:dataTable style="background-color: white;" class="table  table-hover table-bordered " id="table"  value="#{controllerOrdenProduccion.listaDeVentasPorFecha}"  var="vpf">
+                            <h:column>
+                                <f:facet name="header">Mes</f:facet>
+                                <h:outputText value="#{vpf[0]}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Ventas en el mes</f:facet>
+                                <h:outputText value="#{vpf[1]} "/>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="container">
+                        <br/>
+                        <br/>
+
+                        <div id="chartContainer" style="width: 100%; height: 300px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </ui:define>
+    <ui:define name="scriptsCustomized" >
+        <script src="#{request.contextPath}/resources/js/canvasjs.min.js"></script>
+        <script src="#{request.contextPath}/resources/js/jquery.canvasjs.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                var chart = new CanvasJS.Chart("chartContainer");
+                chart.options.axisY = {
+                    suffix: "C",
+                    lineThickness: 2
+                };
+                chart.options.title = {
+                    text: "Ventas en el año"
+                };
+                chart.options.animationEnabled = true;
+                series1 = {
+                    /*** Change type "column" to "bar", "area", "line" or "pie"***/
+                    type: "column",
+                    name: "2018",
+                    color: "#66D3AB",
+                    showInLegend: true
+                };
+                chart.options.data = [];
+                chart.options.data.push(series1);
+                series1.dataPoints = #{controllerGraficas.datosJsonFechas};
+                /*series3.dataPoints = [{"x": 0.0, "y": 0.0, "label": "January"}, {x: 1.0, y: 2.0, "label": "February"}, {"x": 2.0, "y": 3.0, "label": "March"}, {"x": 3.0, "y": 0.0, "label": "April"}, {"x": 4.0, "y": 2.0, "label": "May"}, {"x": 5.0, "y": 7.0, "label": "June"}, {"x": 6.0, "y": 2.0, "label": "July"}, {"x": 7.0, "y": 0.0, "label": "August"}, {"x": 8.0, "y": 0.0, "label": "September"}, {"x": 9.0, "y": 3.0, "label": "October"}, {"x": 10.0, "y": 4.0, "label": "November"}, {"x": 11.0, "y": 2.0, "label": "December"}];*/
+                chart.render();
+                area();
+                convertCanvasToImage();
+            });
+            function convertCanvasToImage(canvas) {
+                var $canvas = $("#conta canvas");
+                var data = $canvas[0].toDataURL("image/jpg");
+                $('#imagenOculta').val(data);
+
+
+                /*alert(data);
+                 $("#imgPrb").attr("src", data);*/
+            }
+        </script>
     </ui:define>
 
 </ui:composition>

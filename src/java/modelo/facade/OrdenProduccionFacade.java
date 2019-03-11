@@ -42,4 +42,22 @@ public class OrdenProduccionFacade extends AbstractFacade<OrdenProduccion> imple
         return Orden;
     }
 
+    @Override
+    public List<OrdenProduccion> findRange1(int start, int cant) {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(OrdenProduccion.class));
+        javax.persistence.Query q = getEntityManager().createQuery(cq);
+        q.setMaxResults(cant);
+        q.setFirstResult(start);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Object[]> ventasPorFecha() {
+        List<Object[]> lista; 
+        Query q = getEntityManager().createNativeQuery("Select MONTHNAME(orden_produccion.fecha_entrega_produccion) ,COUNT(orden_produccion.fecha_entrega_produccion) from orden_produccion WHERE  YEAR(orden_produccion.fecha_entrega_produccion) = YEAR(now()) AND orden_produccion.fecha_entrega_produccion <= now() GROUP BY(MONTH(orden_produccion.fecha_entrega_produccion));");
+        lista = q.getResultList();
+        return lista;
+    }
+
 }

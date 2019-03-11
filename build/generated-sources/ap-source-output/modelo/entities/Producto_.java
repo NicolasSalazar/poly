@@ -12,7 +12,7 @@ import modelo.entities.ProductosEnStock;
 import modelo.entities.Stock;
 import modelo.entities.TipoProducto;
 
-@Generated(value="EclipseLink-2.7.0.v20170811-rNA", date="2019-03-10T16:58:34")
+@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2019-03-11T00:38:22")
 @StaticMetamodel(Producto.class)
 public class Producto_ { 
 

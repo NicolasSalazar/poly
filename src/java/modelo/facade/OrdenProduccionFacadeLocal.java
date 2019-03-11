@@ -32,4 +32,7 @@ public interface OrdenProduccionFacadeLocal {
     
     List<OrdenProduccion> lista(String estado);
     
+    List<OrdenProduccion> findRange1(int start, int cant);
+    
+    List<Object[]> ventasPorFecha();
 }
