@@ -4,14 +4,22 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
+
     <script href="#{request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
     <script href="#{request.contextPath}/resources/js/popper.min.js "></script>
     <script href="#{request.contextPath}/resources/js/bootstrap.js "></script>
     <script src="#{request.contextPath}/resources/js/fontawesome-all.js "></script>
     <script src="#{request.contextPath}/resources/js/sweetalert.min.js "></script>
+    
 
     <!-- scripts personalizados para cualquier pagina>-->
     <ui:insert name="scriptsCustomized">
         
+        
     </ui:insert>
+        <script>
+        
+        setInterval(noti,5000);
+
+    </script>
 </ui:composition>

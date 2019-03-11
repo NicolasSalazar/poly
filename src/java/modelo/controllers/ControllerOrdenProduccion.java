@@ -12,6 +12,10 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import modelo.entities.OrdenProduccion;
 import modelo.facade.OrdenProduccionFacadeLocal;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.BarChartSeries;
+import org.primefaces.model.chart.ChartSeries;
+
 
 /**
  *
@@ -31,7 +35,9 @@ public class ControllerOrdenProduccion implements Serializable {
     //Implementacion de las listas
     private List<OrdenProduccion> listaOrden;
     private List<Object[]> listaDeVentasPorFecha;
-    
+    private List<Object[]> listaGrafica;
+    private BarChartModel barra;
+
     //Variables
     private String estado = "";
 
@@ -59,7 +65,7 @@ public class ControllerOrdenProduccion implements Serializable {
         this.listaOrden = listaOrden;
     }
 
-    public void ordenFiltrada(){
+    public void ordenFiltrada() {
         listaOrden = OPFL.lista(estado);
     }
 
@@ -73,8 +79,23 @@ public class ControllerOrdenProduccion implements Serializable {
     public void setListaDeVentasPorFecha(List<Object[]> listaDeVentasPorFecha) {
         this.listaDeVentasPorFecha = listaDeVentasPorFecha;
     }
-
-
     
+    public void listar(){
+        listaGrafica = OPFL.ventasPorFecha();
+    }
     
+    public void graficar(){
+        barra = new BarChartModel();
+        
+        for (int i = 0; i < OPFL.ventasPorFecha().size(); i++) {
+            ChartSeries serie = new BarChartSeries();
+            
+            serie.setLabel(OPFL.ventasPorFecha().get(i)[0].toString());
+            serie.set(i,(Long) OPFL.ventasPorFecha().get(i)[1]);
+            barra.addSeries(serie);
+            barra.setTitle("Ventas por mes");
+            barra.setAnimate(true);
+        }
+    }
+
 }

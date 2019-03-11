@@ -10,8 +10,9 @@ package controllers.view.graficas;
  * @author nicol
  */
 public class Graficas {
+
     private double x;
-        private double y;
+    private double y;
     private String label;
 
     public Graficas() {
@@ -46,7 +47,5 @@ public class Graficas {
     public void setLabel(String label) {
         this.label = label;
     }
-    
-    
 
 }

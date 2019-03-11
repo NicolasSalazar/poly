@@ -41,20 +41,22 @@ public class ControllerGraficas {
         tipo = "column";
     }
 
-    public List<Graficas> getDatos() {
+    
+    
+    public String getDatosJsonFechas(){
+        Gson gson = new Gson();
+        return gson.toJson(getDatosFecha());
+    }
+    public List<Graficas> getDatosFecha() {
         lis = COP.getListaDeVentasPorFecha();
         if (datos == null || datos.isEmpty()) {
             datos = new ArrayList<>();
             for (int i = 0; i < lis.size(); i++) {
                 datos.add(new Graficas(i, (Long) lis.get(i)[1], lis.get(i)[0].toString()));
+                System.out.println(lis);
             }
         }
         return datos;
     }    
-    
-    public String getDatosJsonFechas(){
-        Gson gson = new Gson();
-        return gson.toJson(getDatos());
-    }
     
 }
