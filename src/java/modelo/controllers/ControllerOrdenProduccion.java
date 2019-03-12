@@ -7,11 +7,13 @@ package modelo.controllers;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import modelo.entities.OrdenProduccion;
 import modelo.facade.OrdenProduccionFacadeLocal;
+import modelo.view.utils.Pager;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.BarChartSeries;
 import org.primefaces.model.chart.ChartSeries;
@@ -31,9 +33,13 @@ public class ControllerOrdenProduccion implements Serializable {
 
     //Implementacion de la entidad
     private OrdenProduccion ordenProduccion;
+    
+    //Implementacion de la clase Paginado
+    private Pager paginador;
 
     //Implementacion de las listas
     private List<OrdenProduccion> listaOrden;
+    private List<OrdenProduccion> listaPag;
     private List<Object[]> listaDeVentasPorFecha;
     private List<Object[]> listaGrafica;
     private BarChartModel barra;
@@ -44,6 +50,12 @@ public class ControllerOrdenProduccion implements Serializable {
     //Constructor
     public ControllerOrdenProduccion() {
     }
+    
+    //Inicializador de variables PostContructor
+    @PostConstruct
+    public void init(){
+        paginador = new Pager(OPFL, 6);
+    }
 
     //Metodos
     public String getEstado() {
@@ -52,6 +64,14 @@ public class ControllerOrdenProduccion implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public List<OrdenProduccion> getListaPag() {
+        return paginador.getElementos();
+    }
+
+    public void setListaPag(List<OrdenProduccion> listaPag) {
+        this.listaPag = listaPag;
     }
 
     public List<OrdenProduccion> getListaOrden() {
@@ -93,9 +113,35 @@ public class ControllerOrdenProduccion implements Serializable {
             serie.setLabel(OPFL.ventasPorFecha().get(i)[0].toString());
             serie.set(i,(Long) OPFL.ventasPorFecha().get(i)[1]);
             barra.addSeries(serie);
+        }
             barra.setTitle("Ventas por mes");
             barra.setAnimate(true);
-        }
     }
 
+    public List<Object[]> getListaGrafica() {
+        return listaGrafica;
+    }
+
+    public void setListaGrafica(List<Object[]> listaGrafica) {
+        this.listaGrafica = listaGrafica;
+    }
+
+    public BarChartModel getBarra() {
+        return barra;
+    }
+
+    public void setBarra(BarChartModel barra) {
+        this.barra = barra;
+    }
+
+    public Pager getPaginador() {
+        return paginador;
+    }
+
+    public void setPaginador(Pager paginador) {
+        this.paginador = paginador;
+    }
+
+    
+    
 }

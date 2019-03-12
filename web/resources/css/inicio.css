@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Signika');
+body {
+    background-image: url(../img/imagenopac1a.jpg);
+    width: 100%;
+    height: auto;
+}
+
+.border{
+
+    border: solid 1px #000 !important;
+}
+
+nav{
+
+    height: 50px;
+}
+
+nav ul li a{
+    color: white;
+    font-family: Signika, sans-serif;
+}
+
+nav ul li a:hover{
+    background-color: #31353D;
+    color: white;
+    border-radius: 5px;
+
+}
+#dropdownMenuLink:hover{
+    background-color: #31353D;
+    color: white;
+}
+
+#dropdownMenuLink{
+    background-color: transparent;
+    text-decoration: none;
+    font-family: Signika, sans-serif;
+    border: none;
+}
+nav{
+    background-color: #FFDDFF;
+    color: white;
+}
+
+header{
+    height: 600px;
+}
+
+main{
+    height: 600px;
+    background-color: #EEEFF7;
+    font-family: Signika, sans-serif;
+}
+
+.img1{
+
+    padding: 50px;
+}
+
+main .img1 img{
+
+    height: 100%;
+    width: 100%;
+}
+
+.mision-vision{
+
+    color: #EEEFF7;
+    background-color: #31353D;
+    height: 400px;
+    font-family: Signika, sans-serif;
+}
+
+section{
+
+    height: 500px;
+}
+
+.carrusel{
+
+    padding: 100px;
+    padding-top: 47px;
+    background-image: url(../img/49115191-flores-en-colores-pastel-hojas-hierba-papel-tapiz-floral-sin-fisuras-para-el-diseño-de-interiores-acuar.jpg);
+}
+
+.carrusel img{
+
+    height: 400px;
+    width: 50%;
+}
+
+.img{
+
+    position: relative;
+    left: 270px;
+    bottom: 80px;
+}
+
+h1{
+    text-align: center;
+    font-family: Signika, sans-serif;
+}
+
+.p{
+    padding-top: 153px;
+    text-align: center;
+}
+
+.d{
+    padding: 50px;
+}
+
+section .video iframe{
+
+    width: 100%;
+    height: 100%;
+}
+
+.v{
+    
+    height: 500px;
+}
+
+.video{
+    height: 500px;
+    width:auto;
+    text-align: center;
+    padding: 50px;
+    color: #31353D;
+    background: #EEEFF7;
+    font-family: Signika, sans-serif;
+}
+
+footer{
+    background-color: #31353D;
+    padding: 50px;
+    text-align: center;
+    font-family: Signika, sans-serif;
+    color: #EEEFF7;
+;
+
+}
+
+footer .redes img{
+    float: center;
+}

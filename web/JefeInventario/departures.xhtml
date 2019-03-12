@@ -5,7 +5,8 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:a="http://java.sun.com/jsf/passthrough"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns="http://www.w3.org/1999/xhtml">
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="AddTitle">
         Salida de materia
@@ -33,6 +34,7 @@
                     </div>
                 </div>
                 <hr></hr>
+                
                 <hr></hr>
                 <h:dataTable id="tabla" class=" table table-hover table-bordered " value="#{controllerOrdenProduccion.listaOrden}" var="ls">
                     <h:column>
@@ -85,20 +87,21 @@
                                 <h:outputText value="#{vpf[1]} "/>
                             </h:column>
 
-                        </h:dataTable>
+                        </h:dataTable>  
                     </h:form>
                 </div>
 
                 <div class="col-md-6">
                     <div class="container">
-                        <div id="conta" style="width: 100%; height: 300px; "></div>
+                            <div id="conta" style="width: 100%; height: 300px; "></div>
+                            <p:inputText type="hidden"/>
                     </div>
                 </div>
             </div>
         </div>
     </ui:define>
     <ui:define name="scriptsCustomized" >
-                <script src="#{request.contextPath}/resources/js/canvasjs.min.js"></script>
+        <script src="#{request.contextPath}/resources/js/canvasjs.min.js"></script>
         <script src="#{request.contextPath}/resources/js/jquery.canvasjs.min.js"></script>
         <script type="text/javascript" >
 
@@ -116,7 +119,7 @@
                     /*** Change type "column" to "bar", "area", "line" or "pie"***/
                     type: "column",
                     name: "2018",
-                    color: "#66D3AB",
+                    color: "#343a40",
                     showInLegend: true
                 };
                 chart.options.data = [];

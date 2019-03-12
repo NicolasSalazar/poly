@@ -1,12 +1,173 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:a="http://java.sun.com/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <title>POLYHEDRA</title>
+        <link rel="icon" type="image/png" href="C:\Users\Duilia\Documents\Diseño Web II\Polyhedra\paginainicio\img/colibri.png"/>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+                <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet"/>
+                    <link rel="stylesheet" href="../css/inicio.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+
+
+
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Llene los campo para iniciar sesion</h5>
+                                        <h:commandButton type="button" class="close" a:data-dismiss="modal" a:aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+                                        </h:commandButton>>
+				</div>
+                                    <h:form>
+				<div class="modal-body">
+						<div class="row">
+							<div class="col">
+                                                            <h:outputLabel value="Usuario:" > </h:outputLabel>
+                                                            <h:inputText  class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+                                                            <h:outputLabel value="Contraseña:"> </h:outputLabel>
+                                                            <h:inputText a:type="password" class="form-control" a:placeholder="Contraseña"></h:inputText>>
+							</div>
+						</div>
+						<div></div>
+				</div>
+				<div class="modal-footer">
+                                    <h:commandButton type="button" class="btn btn-secondary" a:data-dismiss="modal">Aceptar</h:commandButton>
+                                    <h:commandButton type="button" class="btn btn-primary">Olvidé mi contraseña</h:commandButton>>
+				</div>
+                                    </h:form>>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid">
+		<nav class="row fixed-top">
+			<div class="col-12">
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">HOME</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#products">PRODUCTS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#RelatedEvents">RELATED EVENTS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#ContactUs">CONTACT US</a>
+					</li>
+					<div class="dropdown">
+						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							INGRESAR  
+						</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <h:commandButton type="button" class="btn btn-primary" a:data-toggle="modal" a:data-target="#exampleModal">
+								Iniciar Sesion
+                                                    </h:commandButton>>
+						</div>
+					</div>
+				</ul>
+
+			</div>
+		</nav>
+	</div>
+	<header class="row">
+		<div class="col"></div>
+	</header>
+	<main class="row" id="history">
+		<div class="col-6 img1">
+			<img src="../img/Joyas_artesanales_con_brillos_que_deslumbran_joya_life_4.jpg" id="img1"/>
+		</div>
+		<div class="col-6 p">
+			<h1>HISTORY</h1>
+			<p>For 28 years Eden Jewelry has been one of the most trusted names in jewelry in Eden, Reidsville and Rockingham County. We are a well-established jewelry store that has grown with our community from a small store to a multiple brand jewelry retailer. Eden Jewelry is committed to make every customer "feel at home" with our personalized service and our classic to cutting edge jewelry designs. Our years of experience and services have built a legacy of integrity and trust with our customers.
+			</p>
+		</div>
+	</main>
+	<section class="row mision-vision">
+		<div class="col-6 border d mision-vision" id="mission">
+			<h1>MISSION</h1>
+			<br/>
+			<p>We realize that individual taste, styling and design are extremely important to you when you decide to make your jewelry purchase. Our aim is to provide quality services and products with the highest degree of customer satisfaction. Our globally sourced designs help to express your unique personality and suit your lifestyle. We will personally help you to select the exact style and design that will celebrate the important occasions and milestones of your life. </p>
+		</div>
+		<div class="col-6 border d mision-vision" id="vision">
+			<h1>VISION</h1>
+			<br/>
+			<p>All Eden Jewelry's products come with the service and quality upon which we have built our reputation over the last 30 years. We offer our customers a wide range of designs to celebrate the important moments of their life. Our personal relations with our customers have grown over the years and we value the trust you have placed upon us. We help you to select the perfect style to suit your lifestyle. For us no question is too insignificant. You will receive our personal service and detail attention to every purchase you will make.</p>
+		</div>
+	</section>
+	<section class="row">
+		<div class="col-12 carrusel" id="products">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item img active">
+						<img class="d-block" src="../img/Colibri_arete_peq2-1-1600x1600.jpg" alt="First slide"/>
+					</div>
+					<div class="carousel-item img">
+						<img class="d-block" src="../img/Colibri_dije_grande-copy-1600x1600.jpg" alt="Second slide"/>
+					</div>
+					<div class="carousel-item img">
+						<img class="d-block" src="../img/Pavoreal_dije-copy-1600x1600.jpg" alt="Third slide"/>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="row v">
+		<div class="col-6 video" id="RelatedEvents">
+			<h1>RELATED EVENTS</h1>
+			<br/>
+			<br/>
+			<p>We have a fabulous collection of classic to cutting edge jewelry designs and unique styles that nurture your emotions and enhance the joy of gift giving and receiving. The inspiration for our jewelry designs comes from our customers as well as the jewelry trade shows that we attend to source the latest and most innovative jewelry products from across the globe. At Eden Jewelry, you will find a wide selection of fine jewelry, from exquisite Bridals, gorgeous Fashion Rings, beautiful Earrings and Pendants, to attractive Bracelets as well as many Unique and Custom Styles. Our spectacular range of jewelry is studded with a variety of diamonds, emeralds, rubies, sapphires, tanzanite, pearls, aquamarine and other semi-precious gemstones. We have a stunning collection of gold and silver jewelry as well as many watch brands to provide you a wide range to choose from for every occasion.</p>
+		</div>
+		<div class="col-6 video">
+			<iframe src="https://www.youtube.com/embed/JyhOvfr4jTA" frameborder="0"></iframe>
+		</div>
+	</section>
+	<footer class="row" id="ContactUs">
+		<div class="col-4 horario border">
+			<h1>SCHEDULE</h1>
+			<p>Mon-Sat: 9:30am - 6:30pm</p>
+		</div>
+		<div class="col-4 direccion border">
+			<h1>ADDRESS AND PHONE</h1>
+			<p>802 Commonwealth Blvd. Martinsville, VA 24112
+				<br/> Tel: (276) 634-0222</p>
+			</div>
+			<div class="col-4 redes border">
+				<h1>SOCIAL MEDIA</h1>
+				<img src="../img/facebook-logo-button.png" alt=""/>
+				<img src="../img/twitter-logo-button.png" alt=""/>
+				<img src="../img/instagram.png" alt=""/>
+				<h4>EdenJewelry</h4>
+                        </div>
+			</footer>
+			<script src="../js/jquery-3.3.1.js"></script>
+			<script src="../js/popper.min.js"></script>
+			<script src="../js/bootstrap.js"></script>
     </h:body>
 </html>
 
